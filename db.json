@@ -19,6 +19,16 @@
       "bairro": "Jardim Briquet",
       "localidade": "Itapevi",
       "uf": "SP"
+    },
+    {
+      "id": 3,
+      "nome": "Novo Teste",
+      "cpf": "37331037854",
+      "cep": "06690275",
+      "logradouro": "Rua Luiz Reviglio, 215",
+      "bairro": "Vila Nova Itapevi",
+      "localidade": "itapevi",
+      "uf": "SP"
     }
   ]
 }
