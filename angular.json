@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "desafioFrontBTG": {
@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "desafioFrontBTG"
+    }
+  },
+  "defaultProject": "desafioFrontBTG",
+  "cli": {
+    "analytics": "5f67bb92-3ff8-4d1e-afae-946df808fb3d"
+  }
 }

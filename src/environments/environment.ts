@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  
+  apiIbge: 'https://servicodados.ibge.gov.br/api/v1',
+  apiDados: 'http://localhost:3000'
 };
 
 /*

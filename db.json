@@ -1,0 +1,24 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Willian Alves Andrioli (Antigo)",
+      "cpf": "37331037854",
+      "cep": "06690275",
+      "logradouro": "Estrada Represa da Tapera",
+      "bairro": "Vila Nova Itapevi",
+      "localidade": "Itapevi",
+      "uf": "SP"
+    },
+    {
+      "id": 2,
+      "nome": "Willian Alves Andrioli (novo)",
+      "cpf": "37331037854",
+      "cep": "06656240",
+      "logradouro": "Rua Luiz Reviglio, 215",
+      "bairro": "Jardim Briquet",
+      "localidade": "Itapevi",
+      "uf": "SP"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+<div class="row">
+    <div class="col-12">
+        <div class="container">
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card p-5">
+
+                        <div class="row mb-5">
+                            <div class="col-12 d-flex justify-content-between align-items-center">
+                                <div>
+                                    CRUD Teste BTG
+                                </div>
+    
+                                <div>
+                                    <button type="button" class="btn btn-primary" [routerLink]="['/adicionar']">Adicionar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Id</th>
+                                                <th scope="col">Nome</th>
+                                                <th scope="col">Cpf</th>
+                                                <th scope="col">Cep</th>
+                                                <th scope="col">Logradouro</th>
+                                                <th scope="col">Bairro</th>
+                                                <th scope="col">Localidade</th>
+                                                <th scope="col">UF</th>
+                                                <th scope="col">Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let usuario of usuarios">
+                                                <th scope="row">{{usuario.id}}</th>
+                                                <td>{{usuario.nome}}</td>
+                                                <td>{{usuario.cpf}}</td>
+                                                <td>{{usuario.cep}}</td>
+                                                <td>{{usuario.logradouro}}</td>
+                                                <td>{{usuario.bairro}}</td>
+                                                <td>{{usuario.localidade}}</td>
+                                                <td>{{usuario.uf}}</td>
+                                                <td>
+                                                    <a class="mr-2" [routerLink]="['/editar/' + usuario.id]">Editar</a>
+                                                    <a href="javascript:;" (click)="abrirModalExclusao(usuario.id)">Excluir</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<section class="modal-alerta row m-0 justify-content-center align-items-center" *ngIf="mostrarModalExclusao">
+    <div class="modal-area">
+        <div class="card text-center p-4">
+            <h4>
+                Deseja Excluir esse usuário?
+            </h4>
+
+            <div class="row">
+                <div class="col-12 text-center mt-5">
+                    <button 
+                        type="button" 
+                        (click)="mostrarModalExclusao = false"
+                        class="btn btn-danger pl-4 pr-4 mr-3">Não</button>
+
+                    <button 
+                        type="button" 
+                        (click)="excluirUsuario()"
+                        class="btn btn-success pl-4 pr-4">Sim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

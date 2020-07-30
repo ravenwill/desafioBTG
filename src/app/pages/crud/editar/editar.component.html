@@ -1,0 +1,159 @@
+<div class="row">
+    <div class="col-12">
+        <div class="container">
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card p-5">
+
+                        <div class="row mb-5">
+                            <div class="col-12">
+                                <h4 *ngIf="formUsuario.value.id == null">
+                                    Cadastro novo Usuário
+                                </h4>
+                                <h4 *ngIf="formUsuario.value.id != null">
+                                    Editar Usuário
+                                </h4>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-12">
+                                <form [formGroup]="formUsuario">
+    
+                                    <div class="row">
+                                        <div class="col-12 col-md-5">
+                                            <div class="form-group">
+                                                <label for="nome">Nome</label>
+                                                <input type="text" class="form-control" id="nome"
+                                                    aria-describedby="nome" formControlName="nome">
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-12 col-md-3">
+                                            <div class="form-group">
+                                                <label for="cpf">CPF</label>
+                                                <input type="text" class="form-control" id="cpf"
+                                                    aria-describedby="cpf" formControlName="cpf" mask="000.000.000-00">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 col-md-3">
+                                            <div class="form-group">
+                                                <label for="cep">CEP</label>
+                                                <input type="text" class="form-control" id="cep"
+                                                    aria-describedby="cep" formControlName="cep" mask="00000-000">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-5">
+                                            <div class="form-group">
+                                                <label for="logradouro">Logradouro</label>
+                                                <input type="text" class="form-control" id="logradouro"
+                                                    aria-describedby="logradouro" formControlName="logradouro">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-4">
+                                            <div class="form-group">
+                                                <label for="bairro">Bairro</label>
+                                                <input type="text" class="form-control" id="bairro"
+                                                    aria-describedby="bairro" formControlName="bairro">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 col-md-4">
+                                            <div class="form-group">
+                                                <label for="localidade">Localidade</label>
+                                                <input type="text" class="form-control" id="localidade"
+                                                    aria-describedby="localidade" formControlName="localidade">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-2">
+                                            <div class="form-group">
+                                                <label for="uf">UF</label>
+                                                <select class="form-control" aria-describedby="uf" id="uf" formControlName="uf">
+                                                    <option value></option>
+                                                    <option *ngFor="let estado of estados">{{estado.sigla}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-end">
+                                            <div>
+                                                <button 
+                                                    type="button" 
+                                                    [disabled]="formUsuario.invalid" 
+                                                    (click)="formUsuario.value.id == null ? salvarUsuario() : mostrarModalConfirmacao = true"
+                                                    class="btn btn-primary pl-4 pr-4">Salvar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </form>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="modal-alerta row m-0 justify-content-center align-items-center" *ngIf="mostrarModalAlert">
+    <div class="modal-area">
+        <div class="card text-center p-4">
+            <h3 class="text-danger" *ngIf="retornoModal == 0">
+                Ocorreu um erro ao salvar os dados!
+            </h3>
+            <h3 class="text-success" *ngIf="retornoModal == 1">
+                Os dados foram salvos!
+            </h3>
+
+            <div class="row">
+                <div class="col-12 text-center mt-5">
+                    <button 
+                        type="button" 
+                        (click)="fecharModalRetorno()"
+                        class="btn btn-primary pl-4 pr-4">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="modal-alerta row m-0 justify-content-center align-items-center" *ngIf="mostrarModalConfirmacao">
+    <div class="modal-area">
+        <div class="card text-center p-4">
+            <h4>
+                Deseja Alterar os dados do usuário?
+            </h4>
+
+            <div class="row">
+                <div class="col-12 text-center mt-5">
+                    <button 
+                        type="button" 
+                        (click)="mostrarModalConfirmacao = false"
+                        class="btn btn-danger pl-4 pr-4 mr-3">Não</button>
+
+                    <button 
+                        type="button" 
+                        (click)="salvarUsuario()"
+                        class="btn btn-success pl-4 pr-4">Sim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
